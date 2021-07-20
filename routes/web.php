@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::namespace('Admin')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    //dosen
+    Route::resource('dosen', 'DosenController');
+    //kelas
+    Route::resource('kelas', 'KelasController');
+    //mahasiswa
+    Route::resource('mahasiswa', 'MahasiswaController');
+    //user
+    Route::resource('user', 'UserController');
+    Route::get('/update-status/{id}', 'UserController@update_status');
+    Route::patch('/reset-password/{id}', 'UserController@reset_password')->name('reset-password');
+});
