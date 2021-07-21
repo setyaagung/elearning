@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Model\Mahasiswa;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -52,6 +53,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nim' => ['required', 'string', 'email', 'max:255', 'unique:mahasiswa'],
+            'id_kelas' => ['required'],
+            'progdi' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -67,7 +71,13 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'id_role' => 1
+            'id_role' => 3
+        ]);
+        Mahasiswa::create([
+            'nama_mahasiswa' => $data['name'],
+            'nim' => $data['nim'],
+            'id_kelas' => $data['id_kelas'],
+            'progdi' => $data['progdi']
         ]);
     }
 }

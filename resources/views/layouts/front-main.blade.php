@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/vendors/linericon/style.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css')}}">
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('img/logo.png')}}" type="image/x-icon">
 </head>
 <body>
     @include('layouts.front-navbar')
@@ -41,6 +43,7 @@
     <script src="{{ asset('frontend/vendors/counter-up/jquery.counterup.js')}}"></script>
     <script src="{{ asset('frontend/js/mail-script.js')}}"></script>
     <script src="{{ asset('frontend/js/theme.js')}}"></script>
+    @stack('scripts')
 </body>
 </body>
 
