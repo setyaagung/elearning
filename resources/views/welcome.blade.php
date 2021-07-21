@@ -1,99 +1,208 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.front-main')
 
-        <title>Laravel</title>
+@section('title','E-learning Cendekiaku')
+@section('content')
+    <!--================Home Banner Area =================-->
+<section class="home_banner_area">
+	<div class="banner_inner d-flex align-items-center">
+		<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="">
+		</div>
+		<div class="container">
+			<div class="banner_content text-center">
+				<h3>Belajar Dimana Saja & Kapan Saja <br /> Mudah Dengan Learning</h3>
+				<p>Dengan Learning kemudahan kegiatan belajar mengajar dapat terpenuhi. Para Dosen dan Mahasiswa dapat
+					belajar meski banyak halangan atau rintangan. Pembelajaran Terstruktur dan Efektif hanya di
+					Learning! Nikmati kemudahan belajar dan materi terlengkap dari kami! </p>
+				<a class="main_btn" href="{{ route('register')}}">Daftar Sekarang</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Home Banner Area =================-->
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+<!--================Finance Area =================-->
+<section class="finance_area">
+	<div class="container">
+		<div class="finance_inner row">
+			<div class="col-lg-3 col-sm-6">
+				<div class="finance_item">
+					<div class="media">
+						<div class="d-flex">
+							<i class="lnr lnr-rocket"></i>
+						</div>
+						<div class="media-body">
+							<h5>Cepat & <br />Mudah</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="finance_item">
+					<div class="media">
+						<div class="d-flex">
+							<i class="lnr lnr-earth"></i>
+						</div>
+						<div class="media-body">
+							<h5>Kompetensi <br />Internasional</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="finance_item">
+					<div class="media">
+						<div class="d-flex">
+							<i class="lnr lnr-smile"></i>
+						</div>
+						<div class="media-body">
+							<h5>User <br /> Friendly</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="finance_item">
+					<div class="media">
+						<div class="d-flex">
+							<i class="lnr lnr-tag"></i>
+						</div>
+						<div class="media-body">
+							<h5>Simple & <br />Tinggal Belajar!</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Finance Area =================-->
 
-            .full-height {
-                height: 100vh;
-            }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+<!--================Courses Area =================-->
+<section class="courses_area p_40">
+	<div class="container">
+		<div class="main_title">
+			<h2>Program Studi yang tersedia di Learning</h2>
+			<p>Dibawah ini merupakan Program Studi yang tersedia di website Learning. Tiap semester mempunyai
+				materi yang berbeda. Oleh karena itu nikmati materi dan selamat
+				belajar!</p>
+		</div>
+		<div class="row courses_inner">
+			<div class="col-lg-12">
+				<div class="grid_inner">
+					<div class="grid_item wd55">
+						<div class="courses_item">
+							<img src="{{ asset('frontend/img/courses/akuntansi1.jpg')}}" alt="">
+							<div class="hover_text">
+								<a class="cat" href="#">Gratis</a>
+								<a href="javaScript:void(0);">
+									<h4>Program Studi Akuntansi</h4>
+								</a>
+								<ul class="list">
+									<li><a href="#"><i class="lnr lnr-users"></i>50</a></li>
+									<li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
+									<li><a href="#"><i class="lnr lnr-user"></i>Dosen Akuntansi</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="grid_item wd44">
+						<div class="courses_item">
+							<img src="{{ asset('frontend/img/courses/manajemen.jpg')}}" alt="">
+							<div class="hover_text">
+								<a class="cat" href="#">Gratis</a>
+								<a href="javaScript:void(0);">
+									<h4>Program Studi Manajemen</h4>
+								</a>
+								<ul class="list">
+									<li><a href="#"><i class="lnr lnr-users"></i> 50</a></li>
+									<li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
+									<li><a href="#"><i class="lnr lnr-user"></i> Dosen Manajemen</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Courses Area =================-->
 
-            .position-ref {
-                position: relative;
-            }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+<!--================Team Area =================-->
+<section class="team_area p_20">
+	<div class="container">
+		<div class="main_title">
+			<h2>Testimonial Para Mahasiswa Learning</h2>
+			<p>Berikut kesan dan pesan para Mahasiswa yang sudah menggunakan layanan website Learning. Pastikan kamu
+				juga mencoba layanan kami ya! di Learning semoga kamu menikmati semua materi dan pelajaran yang Dosen
+				kami buat! Selamat Belajar! </p>
+		</div>
+		<section class="testimonials_area p_20">
+			<div class="container">
+				<div class="testi_slider owl-carousel">
+					<div class="item">
+						<div class="testi_item">
+							<img src="{{ asset('frontend/img/testimonials/testi-4.png')}}" alt="">
+							<h4>Ester</h4>
+							<ul class="list">
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+							</ul>
+							<p>Materi nya lengkap, Dosennya keren keren semua dan dapat mudah dimengerti materinya.
+								Pokoknya Semangat Learning! Tetap jadi yang terbaik untuk STIE CendekiaKU. Semoga
+								dengan adanya website learning, Mahasiswa STIE CendekiaKU
+								Semarang dapat belajar dengan mudah dan para Mahasiswa dapat mencetak prestrasi untuk
+								Kampus kita tercinta ini. <span class="text-danger"> &#10084;</span>
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="testi_item">
+							<img src="{{ asset('frontend/img/testimonials/testi-5.png')}}" alt="">
+							<h4>Rysad</h4>
+							<ul class="list">
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+							</ul>
+							<p>Dosennya baik baik, materinya terstruktur dan materi nya terus update. Meski Dosen
+								tidak ada, kita masih bisa melihat materi yang dibuat Dosen di Website Learning.
+								Terima kasih learning!. Semoga dengan adanya learning ini kita para Mahasiswa lebih
+								produktif dan dapat meningkatkan kualitas SDM untuk negara kita tercinta ini yaitu
+								negara Indonesia</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="testi_item">
+							<img src="{{ asset('frontend/img/testimonials/testi-6.png')}}" alt="">
+							<h4>Ilham</h4>
+							<ul class="list">
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<li><a href="#"><i class="fa fa-star"></i></a></li>
+							</ul>
+							<p>Website yang sangat berguna untuk para Mahasiswa millenial. Karena dengan learning ini
+								kalian bisa belajar dimana saja dan kapan saja! . Meski Dosen tidak bisa hadir atau
+								kita tidak masuk kampus karena sakit kita masih bisa belajar di website learning
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>
+<!--================End Team Area =================-->
 
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+@endsection

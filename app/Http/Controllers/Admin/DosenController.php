@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Dosen;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Dosen;
 use App\User;
 
 class DosenController extends Controller
