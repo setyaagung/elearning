@@ -37,7 +37,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <h4 class="footer_title">Tentang Learning</h4>
-                <p>
+                <p class="text-justify">
                     Learning adalah website pembelajaran dimana para Mahasiswa dapat belajar dimana saja dan kapan saja.
                     dan Dosen dapat mengupload video dirinya sendiri sedang mengajar. sehingga tanpa takut adanya Jam
                     kosong atau pun keadaan yang tidak terduga apapun karena Learning dapat diakses dimana saja dan

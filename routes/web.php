@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/tentang', 'TentangController@index')->name('tentang');
+Route::get('/program-studi', 'ProgramStudiController@index')->name('program-studi');
 
 Auth::routes([
     'reset' => false

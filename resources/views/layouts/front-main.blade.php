@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/vendors/animate-css/animate.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/vendors/popup/magnific-popup.css')}}">
     <!-- main css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/main.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">

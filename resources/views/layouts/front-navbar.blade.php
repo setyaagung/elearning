@@ -2,19 +2,11 @@
     <!--================Header Menu Area =================-->
     <header class="header_area">
         <div class="top_menu row m0">
-            <div class="container"> <!--
-                <div class="float-left">
-                    <ul class="list header_social">
-                        <li><a href="https://www.facebook.com/zaidan.syauqi.9"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/syauqykhairan"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://dribbble.com/syauqyzaidan"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="https://www.behance.net/syaauqizaaidan"><i class="fa fa-behance"></i></a></li>
-                    </ul>
-                </div> -->
+            <div class="container">
                 <div class="float-right">
-                    <a class="dn_btn" href="tel:+6287830016267">024 - 76440587</a>
-                    <a class="dn_btn" href="mailto:baakcku@gmail.com">admin@cendekiaku.com</a>
-                    <a class="dn_btn" href="http://cendekiaku.ac.id/">cendekiaku.ac.id</a>
+                    <a class="dn_btn" href="tel:+6287830016267"><i class="fas fa-phone"></i> 024 - 76440587</a>
+                    <a class="dn_btn" href="mailto:baakcku@gmail.com"><i class="fas fa-envelope"></i> admin@cendekiaku.com</a>
+                    <a class="dn_btn" href="http://cendekiaku.ac.id/"><i class="fas fa-globe"></i> cendekiaku.ac.id</a>
                 </div>
             </div>
         </div>
@@ -34,12 +26,10 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item" id="nav"><a class="nav-link" href="/">Beranda</a></li>
-                            <li class="nav-item" id="navtentang"><a class="nav-link" href="#">Tentang</a>
+                            <li class="nav-item {{ (request()->segment(1) == '') ? 'active' : '' }}" id="nav"><a class="nav-link" href="/">Beranda</a></li>
+                            <li class="nav-item {{ (request()->segment(1) == 'tentang') ? 'active' : '' }}" id="navtentang"><a class="nav-link" href="{{ route('tentang')}}">Tentang</a>
                             </li>
-                            <li class="nav-item submenu dropdown" id="navmatakuliah">
-                                <a href="#" class="nav-link dropdown-toggle"
-                                    role="button" aria-haspopup="true" aria-expanded="false">Program Studi</a>
+                            <li class="nav-item {{ (request()->segment(1) == 'program-studi') ? 'active' : '' }}" id="navprogdi"><a class="nav-link" href="{{ route('program-studi')}}">Program Studi</a>
                             </li>
                             <li class="nav-item" id="navkontak"><a class="nav-link" href="#">Kontak</a>
                             </li>
