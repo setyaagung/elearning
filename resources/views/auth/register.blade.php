@@ -61,10 +61,10 @@
                         <div class="input-group-icon">
                             <div class="icon"><i class="fas fa-home" aria-hidden="true"></i></div>
                             <div class="form-select" id="default-select">
-                                <select>
+                                <select name="id_kelas">
                                     <option value="">-- Pilih Kelas --</option>
                                     @foreach ($kelases as $kelas)
-                                        <option value="{{ $kelas->id_kelas}}">{{ $kelas->nama_kelas}}</option>
+                                        <option value="{{ $kelas->id_kelas}}" {{ old('id_kelas') == $kelas->id_kelas ? 'selected':''}}>{{ $kelas->nama_kelas}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -76,14 +76,14 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="id_kelas" class="label-font-register">Program Studi</label>
+                        <label for="progdi" class="label-font-register">Program Studi</label>
                         <div class="input-group-icon">
                             <div class="icon"><i class="fas fa-home" aria-hidden="true"></i></div>
                             <div class="form-select" id="default-select">
-                                <select>
+                                <select name="progdi">
                                     <option value="">-- Pilih Program Studi --</option>
-                                    <option value="S1 - Akuntansi">S1 - Akuntansi</option>
-                                    <option value="S1 - Managemen">S1 - Managemen</option>
+                                    <option value="S1 - Akuntansi" {{ old('progdi') == 'S1 - Akuntansi' ? 'selected':''}}>S1 - Akuntansi</option>
+                                    <option value="S1 - Managemen" {{ old('progdi') == 'S1 - Managemen' ? 'selected':''}}>S1 - Managemen</option>
                                 </select>
                             </div>
                         </div>
@@ -118,37 +118,13 @@
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div>
                     </div>
-                    <div class="form-check mt-2">
-                        <input class="form-check-input checkbox" type="checkbox" id="defaultCheck1"
-                            onchange="document.getElementById('btnsubmit').disabled = !this.checked;">
-                        <label class=" form-check-label" for="defaultCheck1">
-                            Saya setuju dan ingin melanjutkan.
-                        </label>
-                    </div>
-                    <p class="terms">Dengan daftar anda menyetujui <i>privasi dan persyaratan ketentuan
-                            hukum kami </i> .
-                        baca selengkapnya <a href="#"> disini.</a></p>
 
-                    <button type="submit" name="submit" id="btnsubmit" disabled
-                        class="btn btn-block btn-modal btn-submit">Daftar
-                        Sekarang!</button>
+                    <button type="submit" class="btn btn-block btn-modal btn-submit">
+                        Daftar Sekarang!
+                    </button>
                 </form>
             </div>
         </div>
     </div>
     <!--================ End Registration Form Area =================-->
 @endsection
-
-@push('scripts')
-    <script>
-        $('.tab1_btn').prop('disabled', !$('.tab1_chk:checked')
-            .length); //initially disable/enable button based on checked length
-        $('input[type=checkbox]').click(function() {
-            if ($('.tab1_chk:checkbox:checked').length > 0) {
-                $('.btn-submit').prop('disabled', false);
-            } else {
-                $('.btn-submit').prop('disabled', true);
-            }
-        });
-    </script>
-@endpush

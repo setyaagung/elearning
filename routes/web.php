@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::get('/tentang', 'TentangController@index')->name('tentang');
 Route::get('/program-studi', 'ProgramStudiController@index')->name('program-studi');
+Route::get('/kontak', 'KontakController@index')->name('kontak');
 
 Auth::routes([
     'reset' => false
@@ -31,6 +32,10 @@ Route::namespace('Admin')->middleware(['auth'])->group(function () {
     Route::resource('kelas', 'KelasController');
     //mahasiswa
     Route::resource('mahasiswa', 'MahasiswaController');
+    //mata kuliah
+    Route::resource('matakuliah', 'MataKuliahController');
+    //materi
+    Route::resource('materi', 'MateriController');
     //user
     Route::resource('user', 'UserController');
     Route::get('/update-status/{id}', 'UserController@update_status');

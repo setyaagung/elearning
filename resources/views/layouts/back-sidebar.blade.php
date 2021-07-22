@@ -29,6 +29,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('materi.index')}}" class="nav-link {{ (request()->segment(1) == 'materi') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-archive"></i>
+                        <p>Materi</p>
+                    </a>
+                </li>
                 @if (Auth::user()->id_role == 1)
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link {{ (request()->segment(1) == 'dosen') ? 'active' : '' }} {{ (request()->segment(1) == 'kelas') ? 'active' : '' }} {{ (request()->segment(1) == 'mahasiswa') ? 'active' : '' }}">
@@ -55,6 +61,12 @@
                                 <a href="{{ route('mahasiswa.index')}}" class="nav-link {{ (request()->segment(1) == 'mahasiswa') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Mahasiswa</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('matakuliah.index')}}" class="nav-link {{ (request()->segment(1) == 'matakuliah') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Mata Kuliah</p>
                                 </a>
                             </li>
                         </ul>

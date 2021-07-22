@@ -12,7 +12,7 @@
                     <h2>Tentang Learning</h2>
                     <div class="page_link">
                         <a href="/">Beranda</a>
-                        <a href="">Tentang</a>
+                        <a href="{{ route('tentang')}}">Tentang</a>
                     </div>
                 </div>
             </div>
