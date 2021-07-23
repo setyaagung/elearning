@@ -8,5 +8,5 @@ class MataKuliah extends Model
 {
     protected $table = 'mata_kuliah';
     protected $primaryKey = 'id_matkul';
-    protected $fillable = ['nama_matkul', 'kategori'];
+    protected $fillable = ['nama_matkul'];
 }

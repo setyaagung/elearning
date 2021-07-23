@@ -46,3 +46,7 @@ Route::namespace('Admin')->middleware(['auth'])->group(function () {
     Route::get('/update-status/{id}', 'UserController@update_status');
     Route::patch('/reset-password/{id}', 'UserController@reset_password')->name('reset-password');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/semester/courses', 'SiteMateriController@index')->name('semester.courses');
+});

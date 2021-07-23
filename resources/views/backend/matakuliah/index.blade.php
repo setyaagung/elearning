@@ -49,7 +49,6 @@
                                     <tr>
                                         <th>NO</th>
                                         <th>NAMA MATA KULIAH</th>
-                                        <th>KATEGORI</th>
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
@@ -58,7 +57,6 @@
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
                                             <td>{{ $matkul->nama_matkul}}</td>
-                                            <td>{{ $matkul->kategori}}</td>
                                             <td>
                                                 <a href="{{ route('matakuliah.edit',$matkul->id_matkul)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                                 <form action="{{ route('matakuliah.destroy', $matkul->id_matkul)}}" method="POST" class="d-inline">

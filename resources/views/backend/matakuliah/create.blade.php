@@ -30,20 +30,6 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Kategori</label>
-                                    <select class="form-control @error('kategori') is-invalid @enderror" name="kategori">
-                                        <option value="">-- Pilih Kategori --</option>
-                                        <option value="Akuntansi" {{ old('kategori') == 'Akuntansi' ? 'selected':''}}>Akuntansi</option>
-                                        <option value="Managemen" {{ old('kategori') == 'Managemen' ? 'selected':''}}>Managemen</option>
-                                        <option value="Umum" {{ old('kategori') == 'Umum' ? 'selected':''}}>Umum</option>
-                                    </select>
-                                    @error('kategori')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
                                 <div class="float-right">
                                     <a href="{{ route('matakuliah.index')}}" class="btn btn-secondary">Kembali</a>
                                     <button type="submit" class="btn btn-primary">Simpan</button>

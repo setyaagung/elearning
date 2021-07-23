@@ -35,7 +35,7 @@
                             </li>
                             @auth ('id_role' == 3)
                                 <li class="nav-item" id="navmateri">
-                                    <a class="nav-link" href="#">Materi</a>
+                                    <a class="nav-link" href="{{ route('semester.courses')}}">Materi</a>
                                 </li>
                             @endauth
                             @guest

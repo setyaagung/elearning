@@ -42,7 +42,6 @@ class MataKuliahController extends Controller
         ];
         $request->validate([
             'nama_matkul' => 'required|string|max:255|unique:mata_kuliah',
-            'kategori' => 'required|string|max:255',
         ], $message);
         $data = $request->all();
         MataKuliah::create($data);
@@ -87,7 +86,6 @@ class MataKuliahController extends Controller
         ];
         $request->validate([
             'nama_matkul' => 'required|string|max:255|unique:mata_kuliah,nama_matkul,' . $matkul->id_matkul . ',id_matkul',
-            'kategori' => 'required|string|max:255',
         ], $message);
         $data = $request->all();
         $matkul->update($data);

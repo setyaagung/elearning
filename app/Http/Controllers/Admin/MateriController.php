@@ -8,6 +8,7 @@ use App\Model\DetailMateri;
 use App\Model\MataKuliah;
 use App\Model\Materi;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class MateriController extends Controller
@@ -48,6 +49,7 @@ class MateriController extends Controller
     {
         $request->validate([
             'id_matkul' => 'required',
+            'kategori' => 'required|string|max:255',
             'deskripsi' => 'required',
             'semester' => 'required'
         ]);
@@ -95,6 +97,7 @@ class MateriController extends Controller
         $materi = Materi::findOrFail($id);
         $request->validate([
             'id_matkul' => 'required',
+            'kategori' => 'required|string|max:255',
             'deskripsi' => 'required',
             'semester' => 'required'
         ]);
@@ -123,6 +126,7 @@ class MateriController extends Controller
 
     public function store_detail(Request $request)
     {
+        $materi = Materi::where('id_materi', $id_materi)->first();
         $request->validate([
             'judul' => 'required|string|max:255',
             'video' => 'mimes:mp4,mov,ogg,qt|max:50000',
@@ -131,8 +135,20 @@ class MateriController extends Controller
         ]);
         $data = $request->all();
         $data['slug'] = Str::slug($request->input('judul'));
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $file_extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $file_extension;
+            $data['file'] = Storage::putFileAs('public/materi/file', $request->file('file'), $filename);
+        }
+        if ($request->hasFile('video')) {
+            $video = $request->file('video');
+            $video_extension = $video->getClientOriginalExtension();
+            $videoname = time() . '.' . $video_extension;
+            $data['video'] = Storage::putFileAs('public/materi/video', $request->file('video'), $videoname);
+        }
         DetailMateri::create($data);
-        return redirect()->back()->with('create', 'Materi baru berhasil dibuat. Silahkan tambah materi lagi');
+        return redirect()->route('materi.show', $materi->id_materi)->with('create', 'Materi baru berhasil dibuat. Silahkan tambah materi lagi');
     }
     public function edit_detail($id_materi, $id)
     {
@@ -149,18 +165,34 @@ class MateriController extends Controller
             'judul' => 'required|string|max:255',
             'video' => 'mimes:mp4,mov,ogg,qt|max:20000',
             'file' => 'mimes:pdf,ppt,pptx|max:5096',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
         ]);
         $data = $request->all();
         $data['slug'] = Str::slug($request->input('judul'));
+        if ($request->hasFile('file')) {
+            Storage::delete($detail->file);
+            $file = $request->file('file');
+            $file_extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $file_extension;
+            $data['file'] = Storage::putFileAs('public/materi/file', $request->file('file'), $filename);
+        }
+        if ($request->hasFile('video')) {
+            Storage::delete($detail->video);
+            $video = $request->file('video');
+            $video_extension = $video->getClientOriginalExtension();
+            $videoname = time() . '.' . $video_extension;
+            $data['video'] = Storage::putFileAs('public/materi/video', $request->file('video'), $videoname);
+        }
         $detail->update($data);
-        return redirect()->back()->with('update', 'Materi baru berhasil diperbarui');
+        return redirect()->route('materi.show', $materi->id_materi)->with('update', 'Materi baru berhasil diperbarui');
     }
 
     public function destroy_detail($id_materi, $id)
     {
         $materi = Materi::where('id_materi', $id_materi)->first();
         $detail = DetailMateri::findOrFail($id);
+        Storage::delete($detail->file);
+        Storage::delete($detail->video);
         $detail->delete();
         return redirect()->back()->with('delete', 'Materi berhasil dihapus');
     }

@@ -9,7 +9,7 @@ class Materi extends Model
 {
     protected $table = 'materi';
     protected $primaryKey = 'id_materi';
-    protected $fillable = ['id_user', 'id_matkul', 'deskripsi', 'semester'];
+    protected $fillable = ['id_user', 'id_matkul', 'kategori', 'deskripsi', 'semester'];
 
     public function matakuliah()
     {

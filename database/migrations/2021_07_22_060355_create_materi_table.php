@@ -17,6 +17,7 @@ class CreateMateriTable extends Migration
             $table->bigIncrements('id_materi');
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_matkul');
+            $table->string('kategori');
             $table->text('deskripsi');
             $table->string('semester');
             $table->timestamps();

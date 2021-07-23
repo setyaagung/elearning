@@ -50,6 +50,7 @@
                                         <th>NO</th>
                                         <th>MATA KULIAH</th>
                                         <th>DOSEN</th>
+                                        <th>KATEGORI</th>
                                         <th>DESKRIPSI</th>
                                         <th>SEMESTER</th>
                                         <th>AKSI</th>
@@ -61,7 +62,8 @@
                                             <td>{{ $loop->iteration}}</td>
                                             <td>{{ $materi->matakuliah->nama_matkul}}</td>
                                             <td>{{ $materi->user->name}}</td>
-                                            <td>{{ str_limit($materi->deskripsi,40)}}</td>
+                                            <td>{{ $materi->kategori}}</td>
+                                            <td>{{ str_limit($materi->deskripsi,20)}}</td>
                                             <td>{{ $materi->semester}}</td>
                                             <td>
                                                 <a href="{{ route('materi.show',$materi->id_materi)}}" class="btn btn-success btn-sm"><i class="fas fa-file"></i> Detail Materi</a>
