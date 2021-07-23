@@ -36,6 +36,11 @@ Route::namespace('Admin')->middleware(['auth'])->group(function () {
     Route::resource('matakuliah', 'MataKuliahController');
     //materi
     Route::resource('materi', 'MateriController');
+    Route::get('/materi/{id_materi}/detail/create_detail', 'MateriController@create_detail')->name('create_detail');
+    Route::post('/materi/detail/store_detail', 'MateriController@store_detail')->name('store_detail');
+    Route::get('/materi/{id_materi}/detail/{id}/edit_detail', 'MateriController@edit_detail')->name('edit_detail');
+    Route::patch('/materi/{id_materi}/detail/{id}', 'MateriController@update_detail')->name('update_detail');
+    Route::delete('/materi/{id_materi}/detail/{id}', 'MateriController@destroy_detail')->name('destroy_detail');
     //user
     Route::resource('user', 'UserController');
     Route::get('/update-status/{id}', 'UserController@update_status');

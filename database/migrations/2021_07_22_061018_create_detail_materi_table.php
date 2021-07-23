@@ -17,8 +17,10 @@ class CreateDetailMateriTable extends Migration
             $table->bigIncrements('id_detail_materi');
             $table->unsignedBigInteger('id_materi');
             $table->string('judul');
+            $table->string('slug');
             $table->string('video')->nullable();
             $table->string('file')->nullable();
+            $table->text('deskripsi');
             $table->timestamps();
 
             $table->foreign('id_materi')->references('id_materi')->on('materi')->onDelete('cascade');

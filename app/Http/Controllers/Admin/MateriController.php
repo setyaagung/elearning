@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\DetailMateri;
 use App\Model\MataKuliah;
 use App\Model\Materi;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class MateriController extends Controller
 {
@@ -63,7 +65,9 @@ class MateriController extends Controller
      */
     public function show($id)
     {
-        //
+        $materi = Materi::findOrFail($id);
+        $details = DetailMateri::where('id_materi', $materi->id_materi)->get();
+        return view('backend.materi.show', \compact('materi', 'details'));
     }
 
     /**
@@ -110,5 +114,54 @@ class MateriController extends Controller
         $materi = Materi::findOrFail($id);
         $materi->delete();
         return redirect()->route('materi.index')->with('delete', 'Data materi berhasil dihapus');
+    }
+    public function create_detail($id_materi)
+    {
+        $materi = Materi::where('id_materi', $id_materi)->first();
+        return view('backend.materi.create_detail', compact('materi'));
+    }
+
+    public function store_detail(Request $request)
+    {
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'video' => 'mimes:mp4,mov,ogg,qt|max:50000',
+            'file' => 'mimes:pdf,ppt,pptx|max:5096',
+            'deskripsi' => 'required'
+        ]);
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->input('judul'));
+        DetailMateri::create($data);
+        return redirect()->back()->with('create', 'Materi baru berhasil dibuat. Silahkan tambah materi lagi');
+    }
+    public function edit_detail($id_materi, $id)
+    {
+        $materi = Materi::where('id_materi', $id_materi)->first();
+        $detail = DetailMateri::findOrFail($id);
+        return view('backend.materi.edit_detail', compact('materi', 'detail'));
+    }
+
+    public function update_detail(Request $request, $id_materi, $id)
+    {
+        $materi = Materi::where('id_materi', $id_materi)->first();
+        $detail = DetailMateri::findOrFail($id);
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'video' => 'mimes:mp4,mov,ogg,qt|max:20000',
+            'file' => 'mimes:pdf,ppt,pptx|max:5096',
+            'deskripsi' => 'required'
+        ]);
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->input('judul'));
+        $detail->update($data);
+        return redirect()->back()->with('update', 'Materi baru berhasil diperbarui');
+    }
+
+    public function destroy_detail($id_materi, $id)
+    {
+        $materi = Materi::where('id_materi', $id_materi)->first();
+        $detail = DetailMateri::findOrFail($id);
+        $detail->delete();
+        return redirect()->back()->with('delete', 'Materi berhasil dihapus');
     }
 }
