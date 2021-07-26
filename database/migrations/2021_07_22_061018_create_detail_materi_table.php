@@ -21,6 +21,7 @@ class CreateDetailMateriTable extends Migration
             $table->string('video')->nullable();
             $table->string('file')->nullable();
             $table->text('deskripsi');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
 
             $table->foreign('id_materi')->references('id_materi')->on('materi')->onDelete('cascade');
@@ -34,6 +35,6 @@ class CreateDetailMateriTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_materis');
+        Schema::dropIfExists('detail_materi');
     }
 }

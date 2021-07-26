@@ -52,6 +52,7 @@
                                         <th>NO</th>
                                         <th>JUDUL</th>
                                         <th>DESKRIPSI</th>
+                                        <th>STATUS</th>
                                         <th>VIDEO</th>
                                         <th>FILE</th>
                                         <th>AKSI</th>
@@ -63,6 +64,13 @@
                                             <td>{{ $loop->iteration}}</td>
                                             <td>{{ $detail->judul}}</td>
                                             <td>{{ str_limit($detail->deskripsi,40)}}</td>
+                                            <td>
+                                                @if ($detail->status == 1)
+                                                    <input type="checkbox" class="status" name="status" data-id="{{ $detail->id_detail_materi}}" checked>
+                                                @else
+                                                    <input type="checkbox" class="status" name="status" data-id="{{ $detail->id_detail_materi}}">
+                                                @endif
+                                            </td>
                                             <td>
                                                 @if ($detail->video == null)
 
@@ -96,3 +104,25 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.status').click(function (e) {
+                e.preventDefault();
+                var id = $(this).attr('data-id');
+
+                $.ajax({
+                    url: '/update-status/detail/'+id,
+                    type: 'GET',
+                    success: function (response) {
+                        alert('Status Detail Materi Berhasil Diperbarui') ? "": location.reload();
+                        //alertify.set('notifier', 'position', 'top-right');
+                        //alertify.success(response.status);
+                    }
+                });
+
+            });
+        });
+    </script>
+@endpush

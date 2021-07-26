@@ -12,12 +12,10 @@
                         data-aos-duration="1400">Selamat Datang
                         di Learning <span style="font-size: 40px;">👋🏻
                         </span> </h1>
-                    <p>Hello Mahasiswa! , Ini merupakan halaman utama learning ! Silahkan pilih Semester yang akan kamu
-                        akses
-                        dan pilih mata kuliah yang ingin kamu pelajari. Selamat belajar ya Mahasiswa!</p>
+                    <p>Hello {{ Auth::user()->name}}! , Ini merupakan halaman utama learning ! Silahkan pilih mata kuliah dan semester yang ingin kamu pelajari. Selamat belajar ya {{ Auth::user()->name}}!</p>
                     <hr>
                     <h4 style="line-height: 4px;" data-aos="fade-down" data-aos-duration="1700">{{ Auth::user()->name}} - Learning Mahasiswa</h4>
-                    <p data-aos="fade-down" data-aos-duration="1800">Silahkan pilih semester yang akan kamu akses
+                    <p data-aos="fade-down" data-aos-duration="1800">Silahkan pilih mata kuliah yang akan kamu akses
                         dibawah
                         ini!
                     </p>
@@ -28,25 +26,28 @@
     <!-- End Greetings Card -->
     <br>
     <div class="container mb-5">
-        <div class="bg-white mx-auto p-4 buat-text" data-aos="fade-down" data-aos-duration="1400"
-            style="width: 100%; border-radius:10px;">
-            <div class="row" style="color: black; font-family: 'poppins';">
-                @foreach ($materis as $materi)
-                    <div class="col-md-12 mt-1">
-                        <h5 class="display-4" style="color: black; font-family:'poppins';" data-aos="fade-down"
-                            data-aos-duration="1400">
-                            <span style="font-size: 40px;">
-                                {{ $materi->matakuliah->nama_matkul}}
-                            </span>
-                        </h5>
-
-                        <hr>
-                        <p data-aos="fade-down" data-aos-duration="1800">
-                            {{ $materi->deskripsi}}
-                        </p>
+        <div class="row">
+            @foreach ($materis as $materi)
+                <div class="col-sm-4">
+                    <div class="card shadow-sm mb-4" style="border-radius: 10px !important" data-aos="fade-down" data-aos-duration="1400">
+                        <a href="{{ route('detail.courses',$materi->id_materi)}}">
+                            <div class="card-header" style="background: #04091e">
+                                <h5 class="card-title text-white text-center">{{ $materi->matakuliah->nama_matkul}}</h5>
+                            </div>
+                            <div class="card-body bg-white text-dark text-justify">
+                                {{ str_limit($materi->deskripsi, 150)}}
+                                <hr>
+                                <div class="text-center font-weight-bold">
+                                    Semester {{ $materi->semester}}
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
+        </div>
+        <div>
+            {{ $materis->links()}}
         </div>
     </div>
 @endsection

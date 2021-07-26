@@ -82,7 +82,7 @@ class MateriController extends Controller
     {
         $materi = Materi::findOrFail($id);
         $matkuls = MataKuliah::orderBy('nama_matkul', 'ASC')->get();
-        return view('backend.materi.create', compact('materi', 'matkuls'));
+        return view('backend.materi.edit', compact('materi', 'matkuls'));
     }
 
     /**
@@ -126,7 +126,7 @@ class MateriController extends Controller
 
     public function store_detail(Request $request)
     {
-        $materi = Materi::where('id_materi', $id_materi)->first();
+        //$materi = Materi::where('id_materi', $id_materi)->first();
         $request->validate([
             'judul' => 'required|string|max:255',
             'video' => 'mimes:mp4,mov,ogg,qt|max:50000',
@@ -148,7 +148,7 @@ class MateriController extends Controller
             $data['video'] = Storage::putFileAs('public/materi/video', $request->file('video'), $videoname);
         }
         DetailMateri::create($data);
-        return redirect()->route('materi.show', $materi->id_materi)->with('create', 'Materi baru berhasil dibuat. Silahkan tambah materi lagi');
+        return redirect()->back()->with('create', 'Materi baru berhasil dibuat. Silahkan tambah materi lagi');
     }
     public function edit_detail($id_materi, $id)
     {
@@ -195,5 +195,16 @@ class MateriController extends Controller
         Storage::delete($detail->video);
         $detail->delete();
         return redirect()->back()->with('delete', 'Materi berhasil dihapus');
+    }
+    public function update_status($id)
+    {
+        $detail = DetailMateri::findOrFail($id);
+        if ($detail->status == 1) {
+            $status = 0;
+        } else {
+            $status = 1;
+        }
+        $detail->status = $status;
+        $detail->update();
     }
 }
