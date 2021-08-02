@@ -19,7 +19,10 @@
                             <h3 class="card-title font-weight-bold">
                                 Detail Materi {{ $materi->matakuliah->nama_matkul}}
                             </h3>
-                            <a href="{{ route('create_detail',$materi->id_materi)}}" class="btn btn-primary btn-sm float-right">Tambah</a>
+                            <div class="float-right">
+                                <a href="{{ route('materi.index')}}" class="btn btn-secondary btn-sm">Kembali</a>
+                            <a href="{{ route('create_detail',$materi->id_materi)}}" class="btn btn-primary btn-sm">Tambah</a>
+                            </div>
                         </div>
                         <div class="card-body">
                             @if ($message = Session::get('create'))

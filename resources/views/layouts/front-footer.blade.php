@@ -6,9 +6,9 @@
                 <div class="single-footer-widget tp_widgets">
                     <h6 class="footer_title">Tentang Kami</h6>
                     <ul class="list">
-                        <li><a href="#">Tentang Learning</a></li>
-                        <li><a href="#">Materi Learning</a></li>
-                        <li><a href="#">Kontak Learning</a></li>
+                        <li><a href="{{ route('tentang')}}">Tentang Learning</a></li>
+                        <li><a href="{{ route('semester.courses')}}">Materi Learning</a></li>
+                        <li><a href="{{ route('kontak')}}">Kontak Learning</a></li>
                         <li><a href="https://cendekiaku.ac.id/" target="_blank">Website Resmi Kampus</a></li>
                     </ul>
                 </div>
@@ -17,8 +17,8 @@
                 <div class="single-footer-widget tp_widgets">
                     <h6 class="footer_title">Masuk - Sign in</h6>
                     <ul class="list">
-                        <li><a href="#" data-toggle="modal" data-target="#exampleModalCenter">Untuk Mahasiswa</a></li>
-                        <li><a href="#" target="_blank">Untuk Dosen</a></li>
+                        <li><a href="{{ route('login')}}">Untuk Mahasiswa</a></li>
+                        <li><a href="{{ route('login')}}">Untuk Dosen</a></li>
                     </ul>
                 </div>
             </div>

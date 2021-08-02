@@ -90,7 +90,7 @@
 		</div>
 		<div class="row courses_inner">
 			<div class="col-lg-6">
-				<div class="courses_item">
+				<div class="courses_item" data-aos="fade-right" data-aos-duration="1400">
                     <img src="{{ asset('frontend/img/courses/akuntansi-office.jpg')}}" class="img-fluid" alt="">
                     <div class="hover_text">
                         <a class="cat" href="#">Gratis</a>
@@ -98,7 +98,7 @@
                             <h4>Program Studi Akuntansi</h4>
                         </a>
                         <ul class="list">
-                            <li><a href="#"><i class="lnr lnr-users"></i>50</a></li>
+                            <li><a href="#"><i class="lnr lnr-users"></i>{{ \App\Model\Mahasiswa::where('progdi','S1 - Akuntansi')->count()}}</a></li>
                             <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
                             <li><a href="#"><i class="lnr lnr-user"></i>Dosen Akuntansi</a>
                             </li>
@@ -107,7 +107,7 @@
                 </div>
 			</div>
             <div class="col-lg-6">
-				<div class="courses_item">
+				<div class="courses_item" data-aos="fade-left" data-aos-duration="1400">
                     <img src="{{ asset('frontend/img/courses/akuntansi-dark.jpg')}}" class="img-fluid" alt="">
                     <div class="hover_text">
                         <a class="cat" href="#">Gratis</a>
@@ -115,7 +115,7 @@
                             <h4>Program Studi Manajemen</h4>
                         </a>
                         <ul class="list">
-                            <li><a href="#"><i class="lnr lnr-users"></i>50</a></li>
+                            <li><a href="#"><i class="lnr lnr-users"></i>{{ \App\Model\Mahasiswa::where('progdi','S1 - Managemen')->count()}}</a></li>
                             <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
                             <li><a href="#"><i class="lnr lnr-user"></i>Dosen Manajemen</a>
                             </li>
