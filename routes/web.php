@@ -41,6 +41,7 @@ Route::namespace('Admin')->middleware(['auth'])->group(function () {
     Route::get('/materi/{id_materi}/detail/{id}/edit_detail', 'MateriController@edit_detail')->name('edit_detail');
     Route::patch('/materi/{id_materi}/detail/{id}', 'MateriController@update_detail')->name('update_detail');
     Route::delete('/materi/{id_materi}/detail/{id}', 'MateriController@destroy_detail')->name('destroy_detail');
+    Route::get('/status/{id}', 'MateriController@status');
     Route::get('/update-status/detail/{id}', 'MateriController@update_status');
     //user
     Route::resource('user', 'UserController');

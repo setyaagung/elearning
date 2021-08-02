@@ -53,6 +53,7 @@
                                         <th>KATEGORI</th>
                                         <th>DESKRIPSI</th>
                                         <th>SEMESTER</th>
+                                        <th>STATUS</th>
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
@@ -65,6 +66,13 @@
                                             <td>{{ $materi->kategori}}</td>
                                             <td>{{ str_limit($materi->deskripsi,20)}}</td>
                                             <td>{{ $materi->semester}}</td>
+                                            <td>
+                                                @if ($materi->status == 1)
+                                                    <input type="checkbox" class="status" name="status" data-id="{{ $materi->id_materi}}" checked>
+                                                @else
+                                                    <input type="checkbox" class="status" name="status" data-id="{{ $materi->id_materi}}">
+                                                @endif
+                                            </td>
                                             <td>
                                                 <a href="{{ route('materi.show',$materi->id_materi)}}" class="btn btn-success btn-sm"><i class="fas fa-file"></i> Detail Materi</a>
                                                 <a href="{{ route('materi.edit',$materi->id_materi)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
@@ -85,3 +93,25 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.status').click(function (e) {
+                e.preventDefault();
+                var id = $(this).attr('data-id');
+
+                $.ajax({
+                    url: '/status/'+id,
+                    type: 'GET',
+                    success: function (response) {
+                        alert('Status Materi Berhasil Diperbarui') ? "": location.reload();
+                        //alertify.set('notifier', 'position', 'top-right');
+                        //alertify.success(response.status);
+                    }
+                });
+
+            });
+        });
+    </script>
+@endpush

@@ -38,7 +38,7 @@
                                 {{ str_limit($materi->deskripsi, 150)}}
                                 <hr>
                                 <div class="text-center font-weight-bold">
-                                    Semester {{ $materi->semester}}
+                                    {{ $materi->user->name}} - Semester {{ $materi->semester}}
                                 </div>
                             </div>
                         </a>

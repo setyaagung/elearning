@@ -73,14 +73,14 @@
                                             </td>
                                             <td>
                                                 @if ($detail->video == null)
-
+                                                    Tidak ada video
                                                 @else
-                                                    <a href="{{ Storage::url($detail->video)}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fas fa-video"></i> Lihat Video</a>
+                                                    <a href="https://www.youtube.com/watch?v={{ $detail->video}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fas fa-video"></i> Lihat Video</a>
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($detail->file == null)
-
+                                                    Tidak ada file
                                                 @else
                                                     <a href="{{ Storage::url($detail->file)}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fas fa-file-pdf"></i> Lihat File</a>
                                                 @endif

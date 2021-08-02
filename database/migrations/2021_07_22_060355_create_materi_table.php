@@ -20,6 +20,7 @@ class CreateMateriTable extends Migration
             $table->string('kategori');
             $table->text('deskripsi');
             $table->string('semester');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

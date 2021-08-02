@@ -4,9 +4,9 @@
         <div class="top_menu row m0">
             <div class="container">
                 <div class="float-right">
-                    <a class="dn_btn" href="tel:+6287830016267"><i class="fas fa-phone"></i> 024 - 76440587</a>
-                    <a class="dn_btn" href="mailto:baakcku@gmail.com"><i class="fas fa-envelope"></i> admin@cendekiaku.com</a>
-                    <a class="dn_btn" href="http://cendekiaku.ac.id/"><i class="fas fa-globe"></i> cendekiaku.ac.id</a>
+                    <a class="dn_btn" target="_blank" href="tel:+6287830016267"><i class="fas fa-phone"></i> 024 - 76440587</a>
+                    <a class="dn_btn" target="_blank" href="mailto:baakcku@gmail.com"><i class="fas fa-envelope"></i> admin@cendekiaku.com</a>
+                    <a class="dn_btn" target="_blank" href="http://cendekiaku.ac.id/"><i class="fas fa-globe"></i> cendekiaku.ac.id</a>
                 </div>
             </div>
         </div>

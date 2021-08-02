@@ -32,8 +32,8 @@
                                 Video tidak tersedia
                             </p>
                         @else
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="{{ Storage::url($detail->video)}}" allowfullscreen></iframe>
+                            <div class=" text-center">
+                                <iframe width="880" height="495" src="https://youtube.com/embed/{{ $detail->video}}" frameborder="0" allowfullscreen></iframe>
                             </div>
                         @endif
                         <h4 class="mt-4">File :</h4>

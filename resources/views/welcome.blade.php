@@ -89,42 +89,39 @@
 				belajar!</p>
 		</div>
 		<div class="row courses_inner">
-			<div class="col-lg-12">
-				<div class="grid_inner">
-					<div class="grid_item wd55">
-						<div class="courses_item">
-							<img src="{{ asset('frontend/img/courses/akuntansi1.jpg')}}" alt="">
-							<div class="hover_text">
-								<a class="cat" href="#">Gratis</a>
-								<a href="javaScript:void(0);">
-									<h4>Program Studi Akuntansi</h4>
-								</a>
-								<ul class="list">
-									<li><a href="#"><i class="lnr lnr-users"></i>50</a></li>
-									<li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
-									<li><a href="#"><i class="lnr lnr-user"></i>Dosen Akuntansi</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="grid_item wd44">
-						<div class="courses_item">
-							<img src="{{ asset('frontend/img/courses/manajemen.jpg')}}" alt="">
-							<div class="hover_text">
-								<a class="cat" href="#">Gratis</a>
-								<a href="javaScript:void(0);">
-									<h4>Program Studi Manajemen</h4>
-								</a>
-								<ul class="list">
-									<li><a href="#"><i class="lnr lnr-users"></i> 50</a></li>
-									<li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
-									<li><a href="#"><i class="lnr lnr-user"></i> Dosen Manajemen</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="col-lg-6">
+				<div class="courses_item">
+                    <img src="{{ asset('frontend/img/courses/akuntansi-office.jpg')}}" class="img-fluid" alt="">
+                    <div class="hover_text">
+                        <a class="cat" href="#">Gratis</a>
+                        <a href="javaScript:void(0);">
+                            <h4>Program Studi Akuntansi</h4>
+                        </a>
+                        <ul class="list">
+                            <li><a href="#"><i class="lnr lnr-users"></i>50</a></li>
+                            <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
+                            <li><a href="#"><i class="lnr lnr-user"></i>Dosen Akuntansi</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+			</div>
+            <div class="col-lg-6">
+				<div class="courses_item">
+                    <img src="{{ asset('frontend/img/courses/akuntansi-dark.jpg')}}" class="img-fluid" alt="">
+                    <div class="hover_text">
+                        <a class="cat" href="#">Gratis</a>
+                        <a href="javaScript:void(0);">
+                            <h4>Program Studi Manajemen</h4>
+                        </a>
+                        <ul class="list">
+                            <li><a href="#"><i class="lnr lnr-users"></i>50</a></li>
+                            <li><a href="#"><i class="lnr lnr-bubble"></i> 0</a></li>
+                            <li><a href="#"><i class="lnr lnr-user"></i>Dosen Manajemen</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>

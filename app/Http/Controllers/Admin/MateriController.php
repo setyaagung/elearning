@@ -129,8 +129,7 @@ class MateriController extends Controller
         //$materi = Materi::where('id_materi', $id_materi)->first();
         $request->validate([
             'judul' => 'required|string|max:255',
-            'video' => 'mimes:mp4,mov,ogg,qt|max:50000',
-            'file' => 'mimes:pdf,ppt,pptx|max:5096',
+            'file' => 'mimes:pdf,ppt,pptx,doc,docx,csv,xlsx,xls,|max:5096',
             'deskripsi' => 'required'
         ]);
         $data = $request->all();
@@ -140,12 +139,6 @@ class MateriController extends Controller
             $file_extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $file_extension;
             $data['file'] = Storage::putFileAs('public/materi/file', $request->file('file'), $filename);
-        }
-        if ($request->hasFile('video')) {
-            $video = $request->file('video');
-            $video_extension = $video->getClientOriginalExtension();
-            $videoname = time() . '.' . $video_extension;
-            $data['video'] = Storage::putFileAs('public/materi/video', $request->file('video'), $videoname);
         }
         DetailMateri::create($data);
         return redirect()->back()->with('create', 'Materi baru berhasil dibuat. Silahkan tambah materi lagi');
@@ -163,8 +156,7 @@ class MateriController extends Controller
         $detail = DetailMateri::findOrFail($id);
         $request->validate([
             'judul' => 'required|string|max:255',
-            'video' => 'mimes:mp4,mov,ogg,qt|max:20000',
-            'file' => 'mimes:pdf,ppt,pptx|max:5096',
+            'file' => 'mimes:pdf,ppt,pptx,doc,docx,csv,xlsx,xls,|max:5096',
             'deskripsi' => 'required',
         ]);
         $data = $request->all();
@@ -175,13 +167,6 @@ class MateriController extends Controller
             $file_extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $file_extension;
             $data['file'] = Storage::putFileAs('public/materi/file', $request->file('file'), $filename);
-        }
-        if ($request->hasFile('video')) {
-            Storage::delete($detail->video);
-            $video = $request->file('video');
-            $video_extension = $video->getClientOriginalExtension();
-            $videoname = time() . '.' . $video_extension;
-            $data['video'] = Storage::putFileAs('public/materi/video', $request->file('video'), $videoname);
         }
         $detail->update($data);
         return redirect()->route('materi.show', $materi->id_materi)->with('update', 'Materi baru berhasil diperbarui');
@@ -195,6 +180,17 @@ class MateriController extends Controller
         Storage::delete($detail->video);
         $detail->delete();
         return redirect()->back()->with('delete', 'Materi berhasil dihapus');
+    }
+    public function status($id)
+    {
+        $materi = Materi::findOrFail($id);
+        if ($materi->status == 1) {
+            $status = 0;
+        } else {
+            $status = 1;
+        }
+        $materi->status = $status;
+        $materi->update();
     }
     public function update_status($id)
     {

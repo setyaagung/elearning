@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Video</label>
-                                    <input type="file" class="p-1 form-control @error('video') is-invalid @enderror" name="video" value="{{ Storage::url($detail->video)}}">
+                                    <input type="text" class="form-control @error('video') is-invalid @enderror" name="video" value="{{ $detail->video}}" placeholder="Masukkan id link video youtube">
                                     @error('video')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

@@ -3556,10 +3556,6 @@ h6 {
     overflow: hidden;
 }
 
-.courses_inner .course_item {
-    position: relative;
-}
-
 .courses_inner .course_item .hover_text {
     padding-left: 20px;
     padding-right: 20px;
