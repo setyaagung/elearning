@@ -11,6 +11,19 @@ class Materi extends Model
     protected $primaryKey = 'id_materi';
     protected $fillable = ['id_user', 'id_matkul', 'kategori', 'deskripsi', 'semester', 'status'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        //$query->when($filters['search'] ?? false, function ($query, $search) {
+        //    return $query->where('deskripsi', 'like', '%' . $search . '%');
+        //});
+
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->whereHas('matakuliah', function ($query) use ($search) {
+                $query->where('nama_matkul', 'like', '%' . $search . '%');
+            });
+        });
+    }
+
     public function matakuliah()
     {
         return $this->belongsTo(MataKuliah::class, 'id_matkul');

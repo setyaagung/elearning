@@ -24,6 +24,25 @@
         </div>
     </div>
     <!-- End Greetings Card -->
+    <!-- Start Greetings Card -->
+    <div class="container mt-3">
+        <div class="bg-white mx-auto p-4 buat-text" data-aos="fade-down" data-aos-duration="1400"
+            style="width: 100%; border-radius:10px;">
+            <div class="row" style="color: black; font-family: 'poppins';">
+                <div class="col-md-12 mt-1">
+                    <form action="{{ route('semester.courses')}}" method="GET">
+                        <div class="input-group mb-3">
+                            <input type="search" class="form-control" placeholder="Cari mata kuliah ..." name="search">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Greetings Card -->
     <br>
     <div class="container mb-5">
         <div class="row">

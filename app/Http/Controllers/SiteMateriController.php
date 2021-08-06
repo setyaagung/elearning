@@ -14,9 +14,9 @@ class SiteMateriController extends Controller
     {
         $mahasiswa = Mahasiswa::where('id_user', Auth::user()->id)->first();
         if ($mahasiswa->progdi == 'S1 - Akuntansi') {
-            $materis = Materi::where('kategori', '!=', 'Managemen')->where('status', 1)->orderBy('semester', 'ASC')->paginate(12);
+            $materis = Materi::where('kategori', '!=', 'Managemen')->where('status', 1)->orderBy('semester', 'ASC')->filter(request(['search']))->paginate(12);
         } else {
-            $materis = Materi::where('kategori', '!=', 'Akuntansi')->where('status', 1)->orderBy('semester', 'ASC')->paginate(12);
+            $materis = Materi::where('kategori', '!=', 'Akuntansi')->where('status', 1)->orderBy('semester', 'ASC')->filter(request(['search']))->paginate(12);
         }
         return view('frontend.materi.index', \compact('materis'));
     }
