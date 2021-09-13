@@ -17,7 +17,10 @@
                             <h3 class="card-title font-weight-bold">
                                 Data Materi
                             </h3>
-                            <a href="{{ route('materi.create')}}" class="btn btn-primary btn-sm float-right">Tambah</a>
+                            <div class="float-right">
+                                <a href="{{ route('semester.courses')}}" class="btn btn-success btn-sm" target="_blank"><i class="fas fa-folder-open"></i> Lihat Materi Di Website</a>
+                                <a href="{{ route('materi.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                            </div>
                         </div>
                         <div class="card-body">
                             @if ($message = Session::get('create'))

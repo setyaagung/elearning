@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Absensi;
 use App\Model\DetailMateri;
 use App\Model\MataKuliah;
 use App\Model\Materi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PDF;
 
 class MateriController extends Controller
 {
@@ -202,5 +204,14 @@ class MateriController extends Controller
         }
         $detail->status = $status;
         $detail->update();
+    }
+
+    public function print_absensi($id_materi, $id_detail_materi)
+    {
+        $materi = Materi::where('id_materi', $id_materi)->first();
+        $detail = DetailMateri::where('id_detail_materi', $id_detail_materi)->first();
+        $absensi = Absensi::where('id_detail_materi', $detail->id_detail_materi)->get();
+        $pdf = PDF::loadView('backend.materi.print_absensi', compact('materi', 'detail', 'absensi'));
+        return $pdf->stream();
     }
 }

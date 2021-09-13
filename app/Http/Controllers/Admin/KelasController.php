@@ -86,7 +86,7 @@ class KelasController extends Controller
             'kode_kelas.unique' => 'Maaf, kode kelas ini sudah digunakan kelas lain',
         ];
         $request->validate([
-            'kode_kelas' => 'required|string|max:255|unique:kelas,kode_kelas' . $kelas->id_kelas . ',id_kelas',
+            'kode_kelas' => 'required|string|max:255|unique:kelas,kode_kelas,' . $kelas->id_kelas . ',id_kelas',
             'nama_kelas' => 'required|string|max:255',
         ], $message);
         $data = $request->all();

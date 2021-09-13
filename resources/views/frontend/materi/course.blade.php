@@ -6,10 +6,38 @@
     <div class="container" style="margin-top: 170px">
         <div class="bg-white mx-auto p-4 buat-text" data-aos="fade-down" data-aos-duration="1400"
             style="width: 100%; border-radius:10px;">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hadir!</strong> {{$message}}.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Peringatan!</strong> {{$message}}.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="row" style="color: black; font-family: 'poppins';">
-                <div class="col-md-12 mt-1">
+                <div class="col-md-10 mt-1">
                     <h1 style="color: black; font-family:'poppins';" data-aos="fade-down"
                         data-aos-duration="1400">{{ $detail->judul}}</h1>
+                </div>
+                <div class="col-md-2 mt-1">
+                    @if (Auth::user()->id_role == 3)
+                        <form action="{{ route('absensi',[$materi->id_materi,$detail->slug])}}" method="POST">
+                            @csrf
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Hadir</button>
+                            </div>
+                        </form>
+                    @endif
+                </div>
+                <div class="col-md-12">
                     <p>{{ $materi->matakuliah->nama_matkul}} - Semester {{ $materi->semester}}</p>
                     <hr>
                     <p data-aos="fade-down" data-aos-duration="1800">

@@ -33,7 +33,7 @@
                             </li>
                             <li class="nav-item {{ (request()->segment(1) == 'kontak') ? 'active' : '' }}" id="navkontak"><a class="nav-link" href="{{ route('kontak')}}">Kontak</a>
                             </li>
-                            @auth ('id_role' == 3)
+                            @auth
                                 <li class="nav-item" id="navmateri">
                                     <a class="nav-link" href="{{ route('semester.courses')}}">Materi</a>
                                 </li>
