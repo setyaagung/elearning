@@ -9,7 +9,20 @@ class Materi extends Model
 {
     protected $table = 'materi';
     protected $primaryKey = 'id_materi';
-    protected $fillable = ['id_user', 'id_matkul', 'kategori', 'deskripsi', 'semester', 'status'];
+    protected $fillable = [
+        'id_user', 'id_matkul', 'kategori', 'deskripsi', 'semester',
+        'group_a',
+        'group_a',
+        'group_b',
+        'group_c',
+        'group_d',
+        'group_e',
+        'group_f',
+        'group_g',
+        'group_h',
+        'group_umum',
+        'status'
+    ];
 
     public function scopeFilter($query, array $filters)
     {

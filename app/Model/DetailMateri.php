@@ -8,5 +8,5 @@ class DetailMateri extends Model
 {
     protected $table = 'detail_materi';
     protected $primaryKey = 'id_detail_materi';
-    protected $fillable = ['id_materi', 'judul', 'slug', 'video', 'file', 'deskripsi', 'status'];
+    protected $fillable = ['id_materi', 'judul', 'kelas', 'slug', 'video', 'file', 'zoom', 'deskripsi', 'status'];
 }

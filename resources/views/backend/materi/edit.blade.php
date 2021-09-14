@@ -69,6 +69,42 @@
                                         </span>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas A</label>
+                                    <input type="text" name="group_a" class="form-control" value="{{ $materi->group_a}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas B</label>
+                                    <input type="text" name="group_b" class="form-control" value="{{ $materi->group_b}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas C</label>
+                                    <input type="text" name="group_c" class="form-control" value="{{ $materi->group_c}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas D</label>
+                                    <input type="text" name="group_d" class="form-control" value="{{ $materi->group_d}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas E</label>
+                                    <input type="text" name="group_e" class="form-control" value="{{ $materi->group_e}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas F</label>
+                                    <input type="text" name="group_f" class="form-control" value="{{ $materi->group_f}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas G</label>
+                                    <input type="text" name="group_g" class="form-control" value="{{ $materi->group_g}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas H</label>
+                                    <input type="text" name="group_h" class="form-control" value="{{ $materi->group_h}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Group WA Kelas Umum</label>
+                                    <input type="text" name="group_umum" class="form-control" value="{{ $materi->group_umum}}" placeholder="ex: https://chat.whatsapp.com/qewqewqrqrcc">
+                                </div>
                                 <div class="float-right">
                                     <a href="{{ route('materi.index')}}" class="btn btn-secondary">Kembali</a>
                                     <button type="submit" class="btn btn-primary">Update</button>

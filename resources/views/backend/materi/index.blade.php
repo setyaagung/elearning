@@ -77,7 +77,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('materi.show',$materi->id_materi)}}" class="btn btn-success btn-sm"><i class="fas fa-file"></i> Detail Materi</a>
+                                                <a href="{{ route('materi.show',$materi->id_materi)}}" class="btn btn-info btn-sm"><i class="fas fa-file"></i> Detail Materi</a>
                                                 <a href="{{ route('materi.edit',$materi->id_materi)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                                 <form action="{{ route('materi.destroy', $materi->id_materi)}}" method="POST" class="d-inline">
                                                     @csrf

@@ -42,6 +42,10 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label for="">Kelas</label>
+                                    <input type="text" name="kelas" class="form-control" value="{{ old('kelas')}}" placeholder="ex: A">
+                                </div>
+                                <div class="form-group">
                                     <label for="">Video</label>
                                     <input type="text" class="form-control @error('video') is-invalid @enderror" name="video" value="{{ old('video')}}" placeholder="Masukkan id link video youtube">
                                     @error('video')
@@ -58,6 +62,10 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Zoom</label>
+                                    <input type="text" name="zoom" class="form-control" value="{{ old('zoom')}}" placeholder="ex: https://us04web.zoom.us/j/75454394887?pwd=SmlQWHhNWUxoSjloY2dDMml5WllkZz09">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Deskripsi</label>

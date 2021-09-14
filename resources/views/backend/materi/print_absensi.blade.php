@@ -53,6 +53,11 @@
                         <td>{{ strtoupper($materi->semester)}}</td>
                     </tr>
                     <tr>
+                        <td>KELAS</td>
+                        <td>&nbsp;:&nbsp;</td>
+                        <td>{{ strtoupper($detail->kelas)}}</td>
+                    </tr>
+                    <tr>
                         <td>DOSEN PENGAMPU</td>
                         <td>&nbsp;:&nbsp;</td>
                         <td>{{ strtoupper($materi->user->name)}}</td>

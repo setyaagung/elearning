@@ -72,6 +72,14 @@
                         @else
                             <a href="{{ Storage::url($detail->file)}}" class="btn btn-sm btn-danger" target="_blank"><i class="fas fa-file-pdf"></i> Download File</a>
                         @endif
+                        <h4 class="mt-4">Zoom :</h4>
+                        @if ($detail->zoom == null)
+                            <p class="text-center text-dark">
+                                Zoom tidak tersedia
+                            </p>
+                        @else
+                            <a href="{{ $detail->zoom}}" class="btn btn-sm btn-primary" target="_blank"><i class="fas fa-video"></i> Join Zoom</a>
+                        @endif
                     </div>
                 </div>
             </div>
