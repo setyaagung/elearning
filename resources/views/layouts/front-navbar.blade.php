@@ -49,6 +49,18 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
+                                        @if (Auth::user()->id_role == 3)
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('home.profile') }}">
+                                                Update Profil
+                                            </a>
+                                        </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('home.show-password') }}">
+                                                    Ganti Password
+                                                </a>
+                                            </li>
+                                        @endif
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

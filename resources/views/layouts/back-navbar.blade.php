@@ -18,6 +18,9 @@
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">{{ Auth::user()->name }}</span>
                 <div class="dropdown-divider"></div>
+                <a href="{{ route('dashboard.show-password')}}" class="dropdown-item">
+                    <i class="fas fa-cog mr-2"></i> Ganti Password
+                </a>
                 <a href="{{ route('logout')}}" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt mr-2"></i> Keluar
                 </a>

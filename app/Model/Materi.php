@@ -12,7 +12,6 @@ class Materi extends Model
     protected $fillable = [
         'id_user', 'id_matkul', 'kategori', 'deskripsi', 'semester',
         'group_a',
-        'group_a',
         'group_b',
         'group_c',
         'group_d',

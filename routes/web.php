@@ -26,6 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Admin')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('/show-password', 'DashboardController@show_password')->name('dashboard.show-password');
+    Route::patch('/change-password', 'DashboardController@ganti_password')->name('dashboard.ganti-password');
     //dosen
     Route::resource('dosen', 'DosenController');
     //kelas
@@ -51,6 +53,10 @@ Route::namespace('Admin')->middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/profil-anda', 'HomeController@profile')->name('home.profile');
+    Route::patch('/update-profil', 'HomeController@update_profile')->name('home.update-profile');
+    Route::get('/password', 'HomeController@show_password')->name('home.show-password');
+    Route::patch('/ganti-password', 'HomeController@ganti_password')->name('home.ganti-password');
     Route::get('/courses', 'SiteMateriController@index')->name('semester.courses');
     Route::get('/courses/{id_materi}/detail', 'SiteMateriController@detail_course')->name('detail.courses');
     Route::get('/courses/{id_materi}/detail/{slug}', 'SiteMateriController@course')->name('courses');
