@@ -42,6 +42,13 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label for="">Jenis</label>
+                                    <select name="jenis" class="form-control">
+                                        <option value="Materi" {{ $detail->jenis == 'Materi' ? 'selected':''}}>Materi</option>
+                                        <option value="Tugas" {{ $detail->jenis == 'Tugas' ? 'selected':''}}>Tugas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="">Kelas</label>
                                     <input type="text" name="kelas" class="form-control" value="{{ $detail->kelas}}" placeholder="ex: A">
                                 </div>

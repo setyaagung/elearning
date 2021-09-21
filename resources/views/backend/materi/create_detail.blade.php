@@ -42,6 +42,13 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label for="">Jenis</label>
+                                    <select name="jenis" class="form-control">
+                                        <option value="Materi" {{ old('jenis') == 'Materi' ? 'selected':''}}>Materi</option>
+                                        <option value="Tugas" {{ old('jenis') == 'Tugas' ? 'selected':''}}>Tugas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="">Kelas</label>
                                     <input type="text" name="kelas" class="form-control" value="{{ old('kelas')}}" placeholder="ex: A">
                                 </div>

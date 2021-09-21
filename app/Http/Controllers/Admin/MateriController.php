@@ -8,6 +8,7 @@ use App\Model\Absensi;
 use App\Model\DetailMateri;
 use App\Model\MataKuliah;
 use App\Model\Materi;
+use App\Model\Tugas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -213,5 +214,13 @@ class MateriController extends Controller
         $absensi = Absensi::where('id_detail_materi', $detail->id_detail_materi)->get();
         $pdf = PDF::loadView('backend.materi.print_absensi', compact('materi', 'detail', 'absensi'));
         return $pdf->stream();
+    }
+
+    public function tugas($id_materi, $id_detail_materi)
+    {
+        $materi = Materi::where('id_materi', $id_materi)->first();
+        $detail = DetailMateri::where('id_detail_materi', $id_detail_materi)->first();
+        $tugas = Tugas::where('id_detail_materi', $detail->id_detail_materi)->get();
+        return view('backend.materi.tugas', compact('materi', 'detail', 'tugas'));
     }
 }

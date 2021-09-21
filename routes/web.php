@@ -44,6 +44,7 @@ Route::namespace('Admin')->middleware(['auth'])->group(function () {
     Route::patch('/materi/{id_materi}/detail/{id}', 'MateriController@update_detail')->name('update_detail');
     Route::delete('/materi/{id_materi}/detail/{id}', 'MateriController@destroy_detail')->name('destroy_detail');
     Route::get('/materi/{id_materi}/detail/{id}/print_absensi', 'MateriController@print_absensi')->name('print_absensi');
+    Route::get('/materi/{id_materi}/detail/{id}/tugas', 'MateriController@tugas')->name('tugas');
     Route::get('/status/{id}', 'MateriController@status');
     Route::get('/update-status/detail/{id}', 'MateriController@update_status');
     //user
@@ -61,4 +62,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/courses/{id_materi}/detail', 'SiteMateriController@detail_course')->name('detail.courses');
     Route::get('/courses/{id_materi}/detail/{slug}', 'SiteMateriController@course')->name('courses');
     Route::post('/courses/{id_materi}/detail/{slug}/absensi', 'SiteMateriController@absensi')->name('absensi');
+    Route::post('/courses/{id_materi}/detail/{slug}/upload_tugas', 'SiteMateriController@upload_tugas')->name('upload_tugas');
 });

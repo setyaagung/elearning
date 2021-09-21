@@ -100,6 +100,9 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('print_absensi',[$materi->id_materi,$detail->id_detail_materi])}}" class="btn btn-sm btn-info" target="_blank"><i class="fas fa-file-alt"></i> Absensi</a>
+                                                @if ($detail->jenis == 'Tugas')
+                                                    <a href="{{ route('tugas',[$materi->id_materi,$detail->id_detail_materi])}}" class="btn btn-sm btn-primary"><i class="fas fa-file-archive"></i> Lihat Tugas</a>
+                                                @endif
                                                 <a href="{{ route('courses',[$materi->id_materi,$detail->slug])}}" class="btn btn-sm btn-success" target="_blank"><i class="fas fa-folder"></i> Lihat Materi</a>
                                                 <a href="{{ route('edit_detail',[$materi->id_materi,$detail->id_detail_materi])}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                                 <form action="{{ route('destroy_detail', [$materi->id_materi,$detail->id_detail_materi])}}" method="POST" class="d-inline">
