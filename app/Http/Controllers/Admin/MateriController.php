@@ -132,7 +132,7 @@ class MateriController extends Controller
         //$materi = Materi::where('id_materi', $id_materi)->first();
         $request->validate([
             'judul' => 'required|string|max:255',
-            'file' => 'mimes:pdf,ppt,pptx,doc,docx,csv,xlsx,xls,|max:5096',
+            'file' => 'mimes:pdf,ppt,pptx,doc,docx,csv,xlsx,xls,|max:10240',
             'deskripsi' => 'required'
         ]);
         $data = $request->all();
@@ -159,7 +159,7 @@ class MateriController extends Controller
         $detail = DetailMateri::findOrFail($id);
         $request->validate([
             'judul' => 'required|string|max:255',
-            'file' => 'mimes:pdf,ppt,pptx,doc,docx,csv,xlsx,xls,|max:5096',
+            'file' => 'mimes:pdf,ppt,pptx,doc,docx,csv,xlsx,xls,|max:10240',
             'deskripsi' => 'required',
         ]);
         $data = $request->all();
