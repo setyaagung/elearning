@@ -60,7 +60,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/ganti-password', 'HomeController@ganti_password')->name('home.ganti-password');
     Route::get('/courses', 'SiteMateriController@index')->name('semester.courses');
     Route::get('/courses/{id_materi}/detail', 'SiteMateriController@detail_course')->name('detail.courses');
-    Route::get('/courses/{id_materi}/detail/{slug}', 'SiteMateriController@course')->name('courses');
-    Route::post('/courses/{id_materi}/detail/{slug}/absensi', 'SiteMateriController@absensi')->name('absensi');
-    Route::post('/courses/{id_materi}/detail/{slug}/upload_tugas', 'SiteMateriController@upload_tugas')->name('upload_tugas');
+    Route::get('/courses/{id_materi}/detail/{id_detail_materi}', 'SiteMateriController@course')->name('courses');
+    Route::post('/courses/{id_materi}/detail/{id_detail_materi}/absensi', 'SiteMateriController@absensi')->name('absensi');
+    Route::post('/courses/{id_materi}/detail/{id_detail_materi}/upload_tugas', 'SiteMateriController@upload_tugas')->name('upload_tugas');
 });

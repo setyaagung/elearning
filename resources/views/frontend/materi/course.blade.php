@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-2 mt-1">
                     @if (Auth::user()->id_role == 3)
-                        <form action="{{ route('absensi',[$materi->id_materi,$detail->slug])}}" method="POST">
+                        <form action="{{ route('absensi',[$materi->id_materi,$detail->id_detail_materi])}}" method="POST">
                             @csrf
                             <div class="float-right">
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Hadir</button>
@@ -106,7 +106,7 @@
                                         File yang anda dikirim kan harus dengan format <b>PDF</b> dengan maksimal ukuran sebesar <b>5 mb</b>.
                                         Jika sudah silahkan klik tombol upload dibawah untuk mengirimkan file yang sudah anda buat.
                                     </p>
-                                    <form action="{{ route('upload_tugas',[$materi->id_materi,$detail->slug])}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('upload_tugas',[$materi->id_materi,$detail->id_detail_materi])}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label class="font-weight-bold" for="">Upload Tugas</label>

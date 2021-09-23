@@ -36,17 +36,17 @@ class SiteMateriController extends Controller
         $details = DetailMateri::where('id_materi', $materi->id_materi)->where('status', 1)->get();
         return view('frontend.materi.detail', \compact('materi', 'details'));
     }
-    public function course($id, $slug)
+    public function course($id, $id_detail_materi)
     {
         $materi = Materi::findOrFail($id);
-        $detail = DetailMateri::where('slug', $slug)->first();
+        $detail = DetailMateri::where('id_detail_materi', $id_detail_materi)->first();
         return view('frontend.materi.course', compact('materi', 'detail'));
     }
 
-    public function absensi(Request $request, $id, $slug)
+    public function absensi(Request $request, $id, $id_detail_materi)
     {
         $materi = Materi::findOrFail($id);
-        $detail = DetailMateri::where('slug', $slug)->first();
+        $detail = DetailMateri::where('id_detail_materi', $id_detail_materi)->first();
         $mahasiswa = Mahasiswa::where('id_user', Auth::user()->id)->first();
         $data = $request->all();
         $data['id_detail_materi'] = $detail->id_detail_materi;
@@ -64,10 +64,10 @@ class SiteMateriController extends Controller
         }
     }
 
-    public function upload_tugas(Request $request, $id, $slug)
+    public function upload_tugas(Request $request, $id, $id_detail_materi)
     {
         $materi = Materi::findOrFail($id);
-        $detail = DetailMateri::where('slug', $slug)->first();
+        $detail = DetailMateri::where('id_detail_materi', $id_detail_materi)->first();
         $mahasiswa = Mahasiswa::where('id_user', Auth::user()->id)->first();
         $data = $request->all();
         $data['id_detail_materi'] = $detail->id_detail_materi;

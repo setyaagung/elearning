@@ -137,7 +137,7 @@
             @foreach ($details as $detail)
                 <div class="col-sm-12">
                     <div class="card shadow-sm mb-4" style="border-radius: 10px !important" data-aos="fade-down" data-aos-duration="1400">
-                        <a href="{{ route('courses',[$materi->id_materi,$detail->slug])}}">
+                        <a href="{{ route('courses',[$materi->id_materi,$detail->id_detail_materi])}}">
                             <div class="card-header" style="background: #04091e">
                                 <h5 class="card-title text-white text-center">{{ $detail->judul}} - Kelas {{ strtoupper($detail->kelas)}}</h5>
                             </div>
