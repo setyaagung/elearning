@@ -139,7 +139,16 @@
                     <div class="card shadow-sm mb-4" style="border-radius: 10px !important" data-aos="fade-down" data-aos-duration="1400">
                         <a href="{{ route('courses',[$materi->id_materi,$detail->id_detail_materi])}}">
                             <div class="card-header" style="background: #04091e">
-                                <h5 class="card-title text-white text-center">{{ $detail->judul}} - Kelas {{ strtoupper($detail->kelas)}}</h5>
+                                <h5 class="card-title text-white text-center">
+                                    {{ $detail->judul}} - Kelas {{ strtoupper($detail->kelas)}} <br>
+                                    (@if ($detail->tanggal != null)
+                                        {{ \Carbon\Carbon::parse($detail->tanggal)->isoFormat('D MMMM Y')}},
+                                    @endif
+                                    @if ($detail->jam_mulai && $detail->jam_selesai)
+                                        Waktu : {{ Carbon\Carbon::parse($detail->jam_mulai)->format('H:i')}} - {{ Carbon\Carbon::parse($detail->jam_selesai)->format('H:i')}} WIB</td>
+                                    @endif
+                                    )
+                                </h5>
                             </div>
                             <div class="card-body bg-white text-dark text-justify">
                                 {{ $detail->deskripsi}}

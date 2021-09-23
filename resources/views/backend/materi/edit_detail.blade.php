@@ -53,6 +53,18 @@
                                     <input type="text" name="kelas" class="form-control" value="{{ $detail->kelas}}" placeholder="ex: A">
                                 </div>
                                 <div class="form-group">
+                                    <label for="">Tanggal Perkuliahan</label>
+                                    <input type="date" name="tanggal" class="form-control" value="{{ $detail->tanggal}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jam Mulai Perkuliahan</label>
+                                    <input type="time" name="jam_mulai" class="form-control" value="{{ $detail->jam_mulai}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jam Selesai Perkuliahan</label>
+                                    <input type="time" name="jam_selesai" class="form-control" value="{{ $detail->jam_selesai}}">
+                                </div>
+                                <div class="form-group">
                                     <label for="">Video</label>
                                     <input type="text" class="form-control @error('video') is-invalid @enderror" name="video" value="{{ $detail->video}}" placeholder="Masukkan id link video youtube">
                                     @error('video')

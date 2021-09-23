@@ -67,7 +67,14 @@
                                     @foreach ($details as $detail)
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
-                                            <td>{{ $detail->judul}}</td>
+                                            <td>{{ $detail->judul}} - <br>
+                                                (@if ($detail->tanggal != null)
+                                                    {{ \Carbon\Carbon::parse($detail->tanggal)->isoFormat('D MMMM Y')}},
+                                                @endif
+                                                @if ($detail->jam_mulai && $detail->jam_selesai)
+                                                    Waktu : {{ Carbon\Carbon::parse($detail->jam_mulai)->format('H:i')}} - {{ Carbon\Carbon::parse($detail->jam_selesai)->format('H:i')}} WIB</td>
+                                                @endif
+                                                )
                                             <td>{{ $detail->kelas}}</td>
                                             <td>{{ $detail->deskripsi}}</td>
                                             <td>
