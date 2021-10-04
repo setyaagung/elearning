@@ -11,7 +11,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('assets/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+
             </div>
             <div class="info">
                 <a href="#" class="d-block">{{ Auth::user()->name}}</a>
@@ -33,6 +33,12 @@
                     <a href="{{ route('materi.index')}}" class="nav-link {{ (request()->segment(1) == 'materi') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-file-archive"></i>
                         <p>Materi</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('perkuliahan.index')}}" class="nav-link {{ (request()->segment(1) == 'perkuliahan') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>Kemajuan Perkuliahan</p>
                     </a>
                 </li>
                 @if (Auth::user()->id_role == 1)

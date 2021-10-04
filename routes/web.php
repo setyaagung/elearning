@@ -47,6 +47,13 @@ Route::namespace('Admin')->middleware(['auth'])->group(function () {
     Route::get('/materi/{id_materi}/detail/{id}/tugas', 'MateriController@tugas')->name('tugas');
     Route::get('/status/{id}', 'MateriController@status');
     Route::get('/update-status/detail/{id}', 'MateriController@update_status');
+    //buku kemajuan perkuliahan
+    Route::resource('perkuliahan', 'PerkuliahanController');
+    Route::get('/perkuliahan/{id_perkuliahan}/detail/create_detail', 'PerkuliahanController@create_detail')->name('create_detail_perkuliahan');
+    Route::post('/perkuliahan/detail/store_detail', 'PerkuliahanController@store_detail')->name('store_detail_perkuliahan');
+    Route::get('/perkuliahan/{id_perkuliahan}/detail/{id}/edit_detail', 'PerkuliahanController@edit_detail')->name('edit_detail_perkuliahan');
+    Route::patch('/perkuliahan/{id_perkuliahan}/detail/{id}', 'PerkuliahanController@update_detail')->name('update_detail_perkuliahan');
+    Route::delete('/perkuliahan/{id_perkuliahan}/detail/{id}', 'PerkuliahanController@destroy_detail')->name('destroy_detail_perkuliahan');
     //user
     Route::resource('user', 'UserController');
     Route::get('/update-status/{id}', 'UserController@update_status');
