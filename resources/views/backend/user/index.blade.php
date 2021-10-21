@@ -71,7 +71,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('user.show',$user->id)}}" class="btn btn-sm btn-success"><i class="fas fa-cog"></i> Reset Password</a>
-                                                @if ($user->id_role == 1)
+                                                @if ($user->id_role == 1 || $user->id_role == 4)
                                                 <a href="{{ route('user.edit',$user->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                                 @endif
                                                 <form action="{{ route('user.destroy', $user->id)}}" method="POST" class="d-inline">

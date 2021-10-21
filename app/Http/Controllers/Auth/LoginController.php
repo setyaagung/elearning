@@ -30,7 +30,7 @@ class LoginController extends Controller
     //protected $redirectTo = '/home';
     public function redirectTo()
     {
-        if (Auth::user()->id_role == 1 || Auth::user()->id_role == 2 && Auth::user()->status == 1) {
+        if (Auth::user()->id_role == 1 || Auth::user()->id_role == 2 || Auth::user()->id_role == 4 && Auth::user()->status == 1) {
             return 'dashboard';
         } elseif (Auth::user()->id_role == 3 && Auth::user()->status == 1) {
             return '/courses';

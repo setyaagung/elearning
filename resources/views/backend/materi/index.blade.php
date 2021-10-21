@@ -19,7 +19,9 @@
                             </h3>
                             <div class="float-right">
                                 <a href="{{ route('semester.courses')}}" class="btn btn-success btn-sm" target="_blank"><i class="fas fa-folder-open"></i> Lihat Materi Di Website</a>
-                                <a href="{{ route('materi.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                                @if (Auth::user()->id_role != 4)
+                                    <a href="{{ route('materi.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                                @endif
                             </div>
                         </div>
                         <div class="card-body">
@@ -70,20 +72,24 @@
                                             <td>{{ str_limit($materi->deskripsi,20)}}</td>
                                             <td>{{ $materi->semester}}</td>
                                             <td>
-                                                @if ($materi->status == 1)
-                                                    <input type="checkbox" class="status" name="status" data-id="{{ $materi->id_materi}}" checked>
-                                                @else
-                                                    <input type="checkbox" class="status" name="status" data-id="{{ $materi->id_materi}}">
+                                                @if (Auth::user()->id_role != 4)
+                                                    @if ($materi->status == 1)
+                                                        <input type="checkbox" class="status" name="status" data-id="{{ $materi->id_materi}}" checked>
+                                                    @else
+                                                        <input type="checkbox" class="status" name="status" data-id="{{ $materi->id_materi}}">
+                                                    @endif
                                                 @endif
                                             </td>
                                             <td>
                                                 <a href="{{ route('materi.show',$materi->id_materi)}}" class="btn btn-info btn-sm"><i class="fas fa-file"></i> Detail Materi</a>
-                                                <a href="{{ route('materi.edit',$materi->id_materi)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                                                <form action="{{ route('materi.destroy', $materi->id_materi)}}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini??')"><i class="fas fa-trash"></i> Hapus</button>
-                                                </form>
+                                                @if (Auth::user()->id_role != 4)
+                                                    <a href="{{ route('materi.edit',$materi->id_materi)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                                    <form action="{{ route('materi.destroy', $materi->id_materi)}}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini??')"><i class="fas fa-trash"></i> Hapus</button>
+                                                    </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

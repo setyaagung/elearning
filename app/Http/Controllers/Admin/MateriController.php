@@ -23,7 +23,7 @@ class MateriController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->id_role == 1) {
+        if (Auth::user()->id_role == 1 || Auth::user()->id_role == 4) {
             $materis = Materi::all();
         } else {
             $materis = Materi::where('id_user', Auth::user()->id)->get();

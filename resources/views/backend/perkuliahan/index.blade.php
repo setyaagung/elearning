@@ -17,9 +17,11 @@
                             <h3 class="card-title font-weight-bold">
                                 Data Buku Kemajuan Perkuliahan
                             </h3>
-                            <div class="float-right">
-                                <a href="{{ route('perkuliahan.create')}}" class="btn btn-primary btn-sm">Tambah</a>
-                            </div>
+                            @if (Auth::user()->id_role != 4)
+                                <div class="float-right">
+                                    <a href="{{ route('perkuliahan.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                                </div>
+                            @endif
                         </div>
                         <div class="card-body">
                             @if ($message = Session::get('create'))
@@ -69,12 +71,14 @@
                                             <td>{{ $perkuliahan->user->name}}</td>
                                             <td>
                                                 <a href="{{ route('perkuliahan.show',$perkuliahan->id_perkuliahan)}}" class="btn btn-info btn-sm"><i class="fas fa-file"></i> Detail</a>
-                                                <a href="{{ route('perkuliahan.edit',$perkuliahan->id_perkuliahan)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                                                <form action="{{ route('perkuliahan.destroy', $perkuliahan->id_perkuliahan)}}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini??')"><i class="fas fa-trash"></i> Hapus</button>
-                                                </form>
+                                                @if (Auth::user()->id_role != 4)
+                                                    <a href="{{ route('perkuliahan.edit',$perkuliahan->id_perkuliahan)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                                    <form action="{{ route('perkuliahan.destroy', $perkuliahan->id_perkuliahan)}}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini??')"><i class="fas fa-trash"></i> Hapus</button>
+                                                    </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

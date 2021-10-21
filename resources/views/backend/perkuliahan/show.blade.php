@@ -19,7 +19,9 @@
                             </h3>
                             <div class="float-right">
                                 <a href="{{ route('perkuliahan.index')}}" class="btn btn-secondary btn-sm">Kembali</a>
-                                <a href="{{ route('create_detail_perkuliahan',$perkuliahan->id_perkuliahan)}}" class="btn btn-primary btn-sm">Tambah</a>
+                                @if (Auth::user()->id_role != 4)
+                                    <a href="{{ route('create_detail_perkuliahan',$perkuliahan->id_perkuliahan)}}" class="btn btn-primary btn-sm">Tambah</a>
+                                @endif
                             </div>
                         </div>
                         <div class="card-body">
@@ -69,12 +71,14 @@
                                                 <a href="{{ Storage::url($detail->file)}}" class="btn btn-sm btn-danger" target="_blank"><i class="fas fa-file-pdf"></i> Lihat File</a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('edit_detail_perkuliahan',[$perkuliahan->id_perkuliahan,$detail->id_detail_perkuliahan])}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                                                <form action="{{ route('destroy_detail_perkuliahan', [$perkuliahan->id_perkuliahan,$detail->id_detail_perkuliahan])}}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini??')"><i class="fas fa-trash"></i> Hapus</button>
-                                                </form>
+                                                @if (Auth::user()->id_role != 4)
+                                                    <a href="{{ route('edit_detail_perkuliahan',[$perkuliahan->id_perkuliahan,$detail->id_detail_perkuliahan])}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                                    <form action="{{ route('destroy_detail_perkuliahan', [$perkuliahan->id_perkuliahan,$detail->id_detail_perkuliahan])}}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini??')"><i class="fas fa-trash"></i> Hapus</button>
+                                                    </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
