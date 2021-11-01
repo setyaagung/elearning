@@ -51,7 +51,7 @@
                                     </button>
                                 </div>
                             @endif
-                            <table id="example1" class="table table-bordered table-striped table-sm">
+                            <table id="example1" class="table table-sm table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>NO</th>
@@ -70,13 +70,13 @@
                                         <tr>
                                             <td>{{ $loop->iteration}}</td>
                                             <td>{{ $detail->judul}} - <br>
-                                                (@if ($detail->tanggal != null)
-                                                    {{ \Carbon\Carbon::parse($detail->tanggal)->isoFormat('D MMMM Y')}},
-                                                @endif
-                                                @if ($detail->jam_mulai && $detail->jam_selesai)
-                                                    Waktu : {{ Carbon\Carbon::parse($detail->jam_mulai)->format('H:i')}} - {{ Carbon\Carbon::parse($detail->jam_selesai)->format('H:i')}} WIB</td>
-                                                @endif
-                                                )
+                                                    @if ($detail->tanggal != null)
+                                                        {{ \Carbon\Carbon::parse($detail->tanggal)->isoFormat('D MMMM Y')}},
+                                                    @endif
+                                                    @if ($detail->jam_mulai && $detail->jam_selesai)
+                                                        Waktu : {{ Carbon\Carbon::parse($detail->jam_mulai)->format('H:i')}} - {{ Carbon\Carbon::parse($detail->jam_selesai)->format('H:i')}} WIB</td>
+                                                    @endif
+
                                             <td>{{ $detail->kelas}}</td>
                                             <td>{{ $detail->deskripsi}}</td>
                                             <td>
